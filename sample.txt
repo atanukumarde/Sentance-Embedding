@@ -1,0 +1,77 @@
+MRD005-340001- Advanced Project 1
+Report
+Sentence Embedding for text mining
+Atanu Kumar De – a.de@jacobs-university.de
+Executive Summary
+This report is a summary of our work on the Advanced Project 1, which is a part of our coursework in the second semester of Data Engineering.
+For the project initially, we wanted to detect sentence embedding techniques. The idea is to tag a sentence from with some values to able to represent them in multi-dimensional vector space to infer on the similarity between two sentences.
+Three techniques have been detected so far, using Doc2Vec, Sentence-BERT and Google Universal Sentence Encoder. 
+
+1. Introduction
+The purpose of this project is to perform sentence embedding. The subsequent sections of this report explain in detail the project. 3 different sentence embedding technique has been implemented on a sample sentence. The results of the trained model have been  illustrated. The output and codes will be uploaded in GitHub. 
+2. Word embedding to Sentence embedding
+2.1 Word Embedding
+To perform natural language processing and text mining words are represented as vectors which can be represented in multi-dimensional space. This has already been implemented in some pre trained model like Word2Vec, Glove etc.[1] 
+
+2.2 Drawbacks of word embedding
+
+Lot of times it happens that only tagging the word to a vector and inferring is not enough as words have their own contextual meaning and the position of a word in a language plays an important role. So to make the system understand the semantic of a sentence. So many models live Word2Vec has been extended to models like Doc2Vec.[2]
+
+2.3 Sentence Embedding
+
+The new way of representing text become sentence encoding in which a long sentence is not directly hot encoded with one single vector, rather the weighted average of the of individual words is being considered while embedding the sentence with dimensionality reduction.[3]
+ 
+
+3. Sentence Embedding Techniques
+
+3.1 Doc2Vec[4]
+
+The working principle of Doc2Vec is based on the representation of paragraph vector. This kind of unsupervised model learns from inferring from subparts of a complete text. The length of the paragraph can vary between sentence, paragraph, or complete document. This sentence embedding technique can be applied in two ways.
+
+3.1.1 Distributed memory model
+
+In this type of implementation, the general idea is to predict the most relevant sentence considering the average of word vectors. So, while predicting next word or missing word in a sentence it remembers the information collected during the whole process and helps in further inference finding between two different sentences.
+
+ 
+
+3.1.2 Distributed bag of words
+
+The learning technique of this model is completely opposite to the above mention one. It takes up a random sample word and tries to predict its nearby windows with the help of similar occurring words in the document. 
+
+ 
+   Figure 2: Steps in PVDOBW
+      Source: https://cs.stanford.edu/~quocle/paragraph_vector.pdf
+
+
+3.2 Sentence-BERT[5]
+
+An extended version of the BERT model is SBERT. In BERT models an input sentence needed to compare with huge number of sentences that are already present which is been avoided and the time complexity   is reduced to milliseconds from hours in Sentence-BERT.
+This technique can be used for both regression as well as classification tasks. While modeling for regression tasks cosine similarity of the embedding vector is considered and SoftMax classification technique for classification tasks.
+
+
+ 
+          
+
+3.3 Universal Sentence Encoder
+
+With developments around sentence embedding Google came up with this library mainly for the purpose of transfer learning to speed up training time by reducing the required supervised training data. There are two type of model architecture based one transformer-based sentence encoding and Deep Averaging Network based encoding.[6]
+
+3.3.1 Transformer-based sentence encoding model
+
+For both of model sentences are being cleaned and tokenized before feeding them to the model. In case of transformer-based model, which is built on recurrent or convolution neural network. So, for every layer the model keeps on adding different information also known attention addition for layers. [7]
+
+ 
+
+3.3.2 Deep Averaging Network
+
+In case of deep average network, the embeddings consider the vector average associated with the input sentences. Eventually after passing that multi-dimensional vector representation through the sequential layers of the model, the resulting classification is done in the last layer of the neural network.[8]
+
+4. Model implementation and Output
+
+4.1 Sample sentences list as training set
+4.1 Sample sentences as test
+“I had pizza and pasta”
+4.2 Model Doc2Vec
+4.3 Model Sentence-BERT
+4.3 Model Universal Sentence Encoder
+9. Future Scope
